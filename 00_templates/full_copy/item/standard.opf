@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xml:lang="ja" unique-identifier="unique-id" xmlns="http://www.idpf.org/2007/opf" version="3.0" prefix="ebpaj: http://www.ebpaj.jp/ rendition: http://www.idpf.org/vocab/rendition/# access: http://www.access-company.com/2012/layout#">
+<metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+<!--タイトル-->
+<dc:title id="title">●タイトル名●</dc:title>
+<meta refines="#title" property="file-as">●タイトル名カタカナ●</meta>
+
+<!--著者-->
+▼著者タグ印字位置▼
+
+<!--出版社-->
+<dc:publisher id="publisher">●出版社名●</dc:publisher>
+<meta refines="#publisher" property="file-as">●出版社名カタカナ●</meta>
+<!--言語-->
+<dc:language>ja</dc:language>
+
+<!--固有ID-->
+<dc:identifier id="unique-id">●UUID●</dc:identifier>
+
+<!--更新日-->
+<meta property="dcterms:modified">●更新日●</meta>
+<!--作成ツール-->
+<!--表紙-->
+<meta name="cover" content="image-cover"/>
+<meta name="original-resolution" content="1600x2560"/>
+<!--レイアウト-->
+<meta property="rendition:layout">pre-paginated</meta>
+<meta name="primary-writing-mode" content="vertical-rl"/>
+<meta property="rendition:spread">landscape</meta>
+</metadata>
+<manifest>
+<!--navigation-->
+<item media-type="application/xhtml+xml" properties="nav" id="toc" href="navigation-documents.xhtml"/>
+<!--style-->
+<item media-type="text/css" id="book-style-prepaginated" href="style/book-style-prepaginated.css"/>
+<item media-type="text/css" id="book-style" href="style/book-style.css"/>
+<item media-type="text/css" id="style-leme" href="style/style-leme.css"/>
+<item media-type="text/css" id="style-reset" href="style/style-reset.css"/>
+<item media-type="text/css" id="style-standard" href="style/style-standard.css"/>
+
+<!--image-->
+<item media-type="image/jpeg" properties="cover-image" id="image-cover" href="image/image-cover.jpg"/>
+<item id="colophon" href="image/colophon.jpg" media-type="image/jpeg"/>
+
+▼画像ファイルタグ印字位置▼
+
+<!--audio-->
+<!--video-->
+
+<!--xhtml-->
+<item media-type="application/xhtml+xml" properties="svg" id="p-cover" href="xhtml/p-cover.xhtml"/>
+<item media-type="application/xhtml+xml" properties="svg" id="p-colophon" href="xhtml/p-colophon.xhtml"/>
+▼xhtmlファイルタグ印字位置▼
+
+</manifest>
+
+<spine page-progression-direction="rtl">
+<itemref linear="yes" properties="rendition:spread-none" idref="p-cover"/>
+▼spineタグ印字位置▼
+
+<itemref linear="yes" properties="rendition:spread-none" idref="p-colophon"/>
+</spine>
+
+</package>

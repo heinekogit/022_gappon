@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+/* LeMEで追加するスタイル */
+
+.vrtl body,
+.hltr body {
+  font-family: serif-ja, serif;
+}
+
+svg {
+  margin:    0;
+  padding:   0;
+}
+
+
+.hltr th,
+.hltr td {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.vrtl th,
+.vrtl td {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.hltr blockquote,
+.hltr pre{
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.vrtl blockquote,
+.vrtl pre {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}

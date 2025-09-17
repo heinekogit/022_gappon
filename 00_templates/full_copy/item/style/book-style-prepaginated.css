@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+/* LeMEで追加するスタイル */
+
+
+/* 画像のみページ用 */
+
+body.p-image,
+body.p-cover {
+  margin:     0;
+  padding:    0;
+  text-align: center;
+}
+
+svg {
+  margin:    0;
+  padding:   0;
+}
+
