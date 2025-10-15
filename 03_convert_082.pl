@@ -8,7 +8,6 @@ use File::Path qw(make_path);
 use File::Spec;
 use File::Copy::Recursive qw(dircopy);
 use POSIX qw(strftime);
-use Data::UUID;
 
 my $csv_file      = 'C:/Users/tomoki.kawakubo/022/02_assemble/shosi.csv';
 my $base_dir      = '02_assemble';
@@ -289,6 +288,27 @@ if ($model_name) {
 
 }
 
+sub gen_uuid_and_modified {
+    my $uuid = eval {
+        require Data::UUID;
+        my $ug = Data::UUID->new;
+        'urn:uuid:' . lc $ug->create_str();
+    } || do {
+        my @h = (0 .. 9, 'a' .. 'f');
+        my $r = sub { join '', map { $h[ int rand @h ] } 1 .. $_[0] };
+        sprintf(
+            'urn:uuid:%s-%s-4%s-%s%s-%s',
+            $r->(8), $r->(4), $r->(3),
+            (qw(8 9 a b))[ int rand 4 ], $r->(3),
+            $r->(12)
+        );
+    };
+
+    my $modified = strftime("%Y-%m-%dT%H:%M:%SZ", gmtime);
+
+    return ($uuid, $modified);
+}
+
 sub update_opf_template {
     my ($row, $opf_path, $image_items_ref, $xhtml_items_ref, $spine_items_ref) = @_;
     print "[debug] update_opf_template calling: $opf_path\n";
@@ -296,9 +316,7 @@ sub update_opf_template {
     my @lines = <$in>;
     close $in;
 
-    my $ug = Data::UUID->new;
-    my $uuid = $ug->create_str();
-    my $modified = strftime("%Y-%m-%dT%H:%M:%SZ", gmtime);
+    my ($uuid, $modified) = gen_uuid_and_modified();
 
     my @creator_blocks;
     for my $i (0 .. 5) {
